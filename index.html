@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="জাতীয় বেতন স্কেল ২০২৬ বেতন নির্ধারণী ক্যালকুলেটর">
+<title>জাতীয় বেতন স্কেল ২০২৬ — বেতন নির্ধারণী</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hero">
+  <h1>জাতীয় বেতন স্কেল ২০২৬</h1>
+  <p>বেতন নির্ধারণী ক্যালকুলেটর — প্রথম সংস্করণ</p>
+  <span class="badge">এস.আর.ও. নং ৩৪৭-আইন/২০২৬ • ১৭ সেপ্টেম্বর ২০২৬</span>
+</header>
+
+<main class="container">
+<form id="payForm">
+<section class="card">
+<h2>১) কর্মকর্তা/কর্মচারীর তথ্য</h2>
+<div class="grid">
+<div class="field"><label>দপ্তরের নাম</label><input id="office" placeholder="যেমন: জেলা জজ আদালত, হবিগঞ্জ"></div>
+<div class="field"><label>নাম</label><input id="name" placeholder="নাম লিখুন"></div>
+<div class="field"><label>বর্তমান পদবি</label><input id="designation" placeholder="পদবি"></div>
+<div class="field"><label>গ্রেড</label><select id="grade"></select></div>
+<div class="field"><label>৩০ জুন ২০২৬-এর মূল বেতন</label><select id="oldBasic"></select><div class="help">গ্রেড নির্বাচন করলে ২০১৫ স্কেলের ধাপ দেখাবে।</div></div>
+<div class="field"><label>অথবা নিজে মূল বেতন লিখুন</label><input id="customBasic" type="number" min="0" placeholder="ঐচ্ছিক"></div>
+<div class="field"><label>পিপি / Personal Pay</label><input id="pp" type="number" min="0" value="0"></div>
+<div class="field"><label>মূল পদের গ্রেড</label><select id="baseGrade"></select></div>
+<div class="field"><label>৩০ জুন ২০২৬ পর্যন্ত উচ্চতর গ্রেড/টাইম স্কেল</label><select id="higherGrade"><option value="0">নেই</option><option value="1">১ম উচ্চতর গ্রেড</option><option value="2">২য় উচ্চতর গ্রেড</option><option value="3">৩য় উচ্চতর গ্রেড</option></select></div>
+<div class="field"><label>পদে যোগদান/শেষ পদোন্নতির তারিখ</label><input id="serviceDate" type="date"></div>
+<div class="field full"><label class="check"><input id="blocked" type="checkbox"><span>ব্লকড পদ — পদোন্নতির সুযোগ নেই (তথ্য হিসেবে সংরক্ষণ)</span></label></div>
+<div class="field full"><label class="check"><input id="higherFromJuly" type="checkbox"><span>১ জুলাই ২০২৬ থেকে একটি উচ্চতর গ্রেড প্রাপ্য</span></label></div>
+<div class="field"><label>উচ্চতর গ্রেডে ধাপ নির্ধারণ</label>
+<select id="higherMethod">
+<option value="next">নতুন স্কেলের পরবর্তী উচ্চতর ধাপ</option>
+<option value="same">সর্বনিকট/সমমান ধাপ</option>
+</select></div>
+</div>
+</section>
+
+<section class="card">
+<h2>২) মাসিক ভাতা ও কর্তন — ৩০ জুন ২০২৬-এর অঙ্ক</h2>
+<div class="grid">
+<div class="field"><label>বাড়ি ভাড়া ভাতা</label><input id="house" type="number" min="0" value="0"></div>
+<div class="field"><label>চিকিৎসা ভাতা</label><input id="medical" type="number" min="0" value="1500"></div>
+<div class="field"><label>শিক্ষা সহায়ক ভাতা</label><input id="education" type="number" min="0" value="0"></div>
+<div class="field"><label>টিফিন ভাতা</label><input id="tiffin" type="number" min="0" value="0"></div>
+<div class="field"><label>যাতায়াত ভাতা</label><input id="transport" type="number" min="0" value="0"></div>
+<div class="field"><label>কার্যভার/চলতি দায়িত্ব ভাতা</label><input id="acting" type="number" min="0" value="0"></div>
+<div class="field"><label>ধোলাই ভাতা</label><input id="wash" type="number" min="0" value="0"></div>
+<div class="field"><label>অন্যান্য ভাতা</label><input id="other" type="number" min="0" value="0"></div>
+<div class="field"><label>GPF / অন্যান্য মাসিক কর্তন</label><input id="deduction" type="number" min="0" value="0"></div>
+</div>
+</section>
+
+<section class="card">
+<h2>৩) ১ জানুয়ারি ২০২৮ থেকে ভাতা</h2>
+<div class="grid">
+<div class="field"><label>কর্মস্থলের এলাকা</label><select id="area">
+<option value="other">অন্যান্য এলাকা</option><option value="city">সিটি কর্পোরেশন/বিশেষ নগর</option>
+<option value="dhaka">ঢাকা মহানগর</option>
+</select></div>
+<div class="field"><label>বয়স</label><select id="age"><option value="under65">৬৫ বছরের নিচে</option><option value="65plus">৬৫ বছর বা বেশি</option></select></div>
+<div class="field"><label>সন্তান সংখ্যা</label><select id="children"></select></div>
+<div class="field"><label>বিশেষ চাহিদাসম্পন্ন সন্তান</label><select id="disabledChildren"><option value="0">০</option><option value="1">১</option><option value="2">২</option><option value="3">৩+</option></select></div>
+<div class="field"><label>বিশেষ এলাকা ভাতা</label><input id="specialArea" type="number" min="0" value="0"></div>
+<div class="field"><label>২০২৮ থেকে অন্যান্য ভাতা</label><input id="other2028" type="number" min="0" value="0"></div>
+<div class="field full"><label class="check"><input id="cityJob" type="checkbox"><span>সিটি কর্পোরেশন এলাকায় কর্মস্থল (যাতায়াত ৬০০ — প্রযোজ্য হলে)</span></label></div>
+<div class="field full"><label class="check"><input id="lunch" type="checkbox"><span>প্রতিষ্ঠান থেকে লাঞ্চ/বিনামূল্যে দুপুরের খাবার পাই (টিফিন ভাতা থাকবে না)</span></label></div>
+<div class="field full"><label class="check"><input id="wash2028" type="checkbox"><span>২০২৮ থেকে ধোলাই ভাতা প্রযোজ্য (ডিফল্ট ৩০০)</span></label></div>
+<div class="field full"><label class="check"><input id="acting2028" type="checkbox"><span>২০২৮ থেকে কার্যভার ভাতা প্রযোজ্য (ডিফল্ট ১,৫০০)</span></label></div>
+</div>
+</section>
+
+<div class="card actions no-print">
+<button class="btn btn-primary" type="submit">হিসাব করুন</button>
+<button class="btn btn-light" type="button" id="resetBtn">রিসেট</button>
+<button class="btn btn-success" type="button" id="printBtn">প্রিন্ট / PDF</button>
+</div>
+</form>
+
+<section class="card result" id="result">
+<h2>ফলাফল</h2>
+<div id="personSummary" class="success"></div>
+<div class="summary" id="stats"></div>
+<div class="table-wrap"><table id="salaryTable">
+<thead><tr><th>সময়কাল</th><th>মূল বেতন</th><th>কার্যকর বৃদ্ধির অংশ</th><th>মোট ভাতা</th><th>কর্তন</th><th>নিট</th></tr></thead>
+<tbody></tbody>
+</table></div>
+<div class="card" style="box-shadow:none;margin-top:16px">
+<h3>ফিক্সেশন ধাপ</h3>
+<div id="steps"></div>
+</div>
+<div class="note">এটি একটি সহায়ক হিসাবযন্ত্র। চূড়ান্ত বেতন নির্ধারণ সংশ্লিষ্ট সরকারি গেজেট, অফিস আদেশ এবং iBAS++/হিসাবরক্ষণ অফিসের অনুমোদনের সঙ্গে মিলিয়ে নিতে হবে।</div>
+</section>
+</main>
+
+<footer class="footer">জাতীয় বেতন স্কেল ২০২৬ — Pay Fixation V1 • GitHub Pages-ready • স্বাধীন সহায়ক টুল</footer>
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
